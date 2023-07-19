@@ -3,17 +3,18 @@ syntax = "proto3";
 package api.v1;
 option go_package = "go.servergrpc/proto/gen";
 
-import "google/api/annotations.proto";
+message GetUserRequest {
+  string id = 1;
+}
+
+message GetUserResponse {
+  string name = 1;
+  string email = 2;
+  string phone = 3;
+}
 
 service UserService {
   rpc GetUser(GetUserRequest) returns (GetUserResponse) {}
 }
 
-message GetUserRequest {
-  google.protobuf.StringValue user_id = 1;
-}
-
-message GetUserResponse {
-  string name = 1;
-}
 

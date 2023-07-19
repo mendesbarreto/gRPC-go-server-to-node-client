@@ -6,11 +6,13 @@ import (
 	"log"
 	"net"
 
-	"github.com/mendesbarreto/server-grpc-go/proto/gen"
+	"github.com/mendesbarreto/server-grpc-go/proto"
 	"google.golang.org/grpc"
 )
 
-type server struct{}
+type server struct {
+	gen.UserServiceServer
+}
 
 func (s *server) GetUser(ctx context.Context, req *gen.GetUserRequest) (*gen.GetUserResponse, error) {
 	return &gen.GetUserResponse{
@@ -29,6 +31,8 @@ func main() {
 
 	grpcServer := grpc.NewServer()
 
+	s := server{}
+	gen.RegisterUserServiceServer(grpcServer, &s)
 	if err := grpcServer.Serve(lis); err != nil {
 		log.Fatalln("failed to server: %v", err)
 	}
