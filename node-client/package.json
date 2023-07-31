@@ -30,6 +30,9 @@
         "typescript": "^5.0.0"
     },
     "dependencies": {
+        "@grpc/grpc-js": "^1.8.21",
+        "@grpc/proto-loader": "^0.7.8",
+        "google-protobuf": "^3.21.2",
         "luxon": "^3.3.0"
     }
 }
