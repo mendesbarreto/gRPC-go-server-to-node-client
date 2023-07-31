@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package api.v1.chucknorris;
+option go_package = "go.servergrpc/proto/gen";
+
+message GetRandomJokeRequest {
+  optional string category = 1;
+}
+
+message GetRandomJokeResponse {
+  string id = 1;
+  string iconUrl = 2;
+  optional string url = 3;
+  string value = 4;
+}
+
+service ChuckNorrisFactService {
+  rpc GetRandomFact(GetRandomJokeRequest) returns (GetRandomJokeResponse) {}
+}
+
+
