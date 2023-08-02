@@ -9,6 +9,7 @@ import (
 	"net"
 	"net/http"
 
+	"github.com/mendesbarreto/server-grpc-go/pkgs/interceptors"
 	gen "github.com/mendesbarreto/server-grpc-go/proto"
 	"google.golang.org/grpc"
 )
@@ -67,7 +68,9 @@ func main() {
 		log.Fatalln("failed to listen %v", err)
 	}
 
-	grpcServer := grpc.NewServer()
+	loggerInterceptor := grpc.UnaryInterceptor(interceptors.GetLoggerUnaryIntercptor())
+
+	grpcServer := grpc.NewServer(loggerInterceptor)
 
 	s := server{}
 	gen.RegisterChuckNorrisFactServiceServer(grpcServer, &s)

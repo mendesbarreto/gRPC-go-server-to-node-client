@@ -15,4 +15,4 @@
 # vendor/
 
 tmp/**
-golang/tmp/**
+golang-server/tmp/**
