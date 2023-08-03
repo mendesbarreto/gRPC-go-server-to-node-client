@@ -3,14 +3,16 @@ package main
 import (
 	"context"
 	"encoding/json"
+	"flag"
 	"fmt"
 	"io/ioutil"
-	"log"
 	"net"
 	"net/http"
 
-	"github.com/mendesbarreto/server-grpc-go/pkgs/interceptors"
+	"github.com/mendesbarreto/server-grpc-go/pkgs/interceptor"
+	"github.com/mendesbarreto/server-grpc-go/pkgs/logger"
 	gen "github.com/mendesbarreto/server-grpc-go/proto"
+	"github.com/rs/zerolog/log"
 	"google.golang.org/grpc"
 )
 
@@ -62,13 +64,19 @@ func (s *server) GetRandomFact(ctx context.Context, req *gen.GetRandomJokeReques
 }
 
 func main() {
+	logger.SetupLogger()
+
 	lis, err := net.Listen("tcp", ":50051")
 
+	log.Info().Msgf("flag received %v", *flag.Bool("debug", false, "set debug"))
+
 	if err != nil {
-		log.Fatalln("failed to listen %v", err)
+		log.Error().Msgf("failed to listen: %v", err)
 	}
 
-	loggerInterceptor := grpc.UnaryInterceptor(interceptors.GetLoggerUnaryIntercptor())
+	log.Info().Msgf("Server listening on %v", lis.Addr())
+
+	loggerInterceptor := grpc.UnaryInterceptor(interceptor.GetLoggerUnaryIntercptor())
 
 	grpcServer := grpc.NewServer(loggerInterceptor)
 
@@ -76,8 +84,6 @@ func main() {
 	gen.RegisterChuckNorrisFactServiceServer(grpcServer, &s)
 
 	if err := grpcServer.Serve(lis); err != nil {
-		log.Fatalln("failed to server: %v", err)
+		log.Error().Msgf("failed to server: %v", err)
 	}
-
-	fmt.Print("Hello HotReload In Go!\n")
 }
