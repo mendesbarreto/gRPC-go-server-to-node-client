@@ -23,7 +23,6 @@ func GetLoggerUnaryIntercptor() grpc.UnaryServerInterceptor {
 		}
 
 		logger := log.Info()
-
 		if err != nil {
 			logger = log.Error()
 		}

@@ -30,7 +30,6 @@ type ChuckNorrisFact struct {
 }
 
 func (s *server) GetRandomFact(ctx context.Context, req *gen.GetRandomJokeRequest) (*gen.GetRandomJokeResponse, error) {
-
 	response, err := http.Get(chuckNorrisFactsURL)
 
 	if err != nil {
