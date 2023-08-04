@@ -1,4 +1,4 @@
-# Hot reload Typescript template
+# gRPC Typscript Client
 
 This is a quick template with some boilerplate for the Typescript project using:
 

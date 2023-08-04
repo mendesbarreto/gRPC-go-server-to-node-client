@@ -1,4 +1,4 @@
-# Live relload GotLang templates
+# Golang gRPC server
 
 This is a simple golan project using gRPC tech.
 
