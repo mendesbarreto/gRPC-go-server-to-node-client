@@ -2,9 +2,9 @@
 
 This is a quick template with some boilerplate for the Typescript project using:
 
--   Nodemon
--   Eslint_d
--   Prittierd
+- Nodemon
+- Eslint_d
+- Prittierd
 
 #### Installation
 
@@ -20,6 +20,16 @@ yarn
 yarn start
 ```
 
-## Nodemon Example
+To generate the JS and TS client from protobuf files run:
 
-![nodemon-example](https://user-images.githubusercontent.com/2684784/209585158-230b567e-fe3d-4803-b7f2-81b0e1cd91c6.gif)
+```shell
+./.scripts/build-protos.sh
+```
+
+#### Optional step:
+
+Make sure you have the permisions set to run the script above with:
+
+```shell
+chmod u+rx .scripts/build-protos.sh
+```
