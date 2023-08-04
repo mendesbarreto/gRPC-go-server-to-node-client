@@ -1,6 +1,6 @@
 # Golang gRPC server
 
-This is a simple golan project using gRPC tech.
+This is a simple golang server using gRPC.
 
 ## Deps Instalation
 
