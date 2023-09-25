@@ -52,9 +52,9 @@
   integrity sha512-NCC3zz2+nvYd+Ckfh87rA47zfu2QsQpvc6k1yzTk+b9KzRj0wkGa8LSoGOXN6Zv4lRf/EIoZ80biDh9HOI+RNQ==
 
 "@grpc/grpc-js-xds@^1.8.0":
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/@grpc/grpc-js-xds/-/grpc-js-xds-1.9.1.tgz#7b83e59469411a54a8498cb8817cf5487cb57f70"
-  integrity sha512-MAR0rBPtuI0ahFcQ57j0CB4DFoQS0D9o3Xj+L+J7vAfKPSRAybWs43WUQdIFDdCBJpmbiIxidMM9OVYd5oxuKg==
+  version "1.9.2"
+  resolved "https://registry.yarnpkg.com/@grpc/grpc-js-xds/-/grpc-js-xds-1.9.2.tgz#859881e0c3627f46984252f2a22384e5f0c520d8"
+  integrity sha512-Y07uVogqxGsRbIpvDJA90nlS3fgSChVAIEU+4fkVE73sBd5soq+agZKeDFQQIwc+N+YZxwCxXlRAHB+1rCu6lw==
   dependencies:
     "@grpc/proto-loader" "^0.6.0"
     google-auth-library "^7.0.2"
@@ -80,7 +80,7 @@
     protobufjs "^6.11.3"
     yargs "^16.2.0"
 
-"@grpc/proto-loader@^0.7.8":
+"@grpc/proto-loader@^0.7.0", "@grpc/proto-loader@^0.7.8":
   version "0.7.10"
   resolved "https://registry.yarnpkg.com/@grpc/proto-loader/-/proto-loader-0.7.10.tgz#6bf26742b1b54d0a473067743da5d3189d06d720"
   integrity sha512-CAqDfoaQ8ykFd9zqBDn4k6iWT9loLAlc2ETmDFS9JCD70gDcnA4L3AFEo2iV7KyAtAAHFW9ftq1Fz+Vsgq80RQ==
